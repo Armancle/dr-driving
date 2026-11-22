@@ -44,14 +44,39 @@
     <aside class="filters-sidebar">
       <div class="filter-group">
         <h4>Search Vehicle</h4>
-        <input type="text" id="catalogSearch" class="filter-input" placeholder="e.g. Innova, Thar, Duke..." oninput="renderCatalog()">
+        <input type="text" id="catalogSearch" class="filter-input" placeholder="e.g. Porsche, Ducati, M5, Panigale, Urus..." oninput="renderCatalog()">
       </div>
 
       <div class="filter-group">
-        <h4>Vehicle Category</h4>
-        <label class="filter-option"><input type="radio" name="f-type" value="all" checked onchange="renderCatalog()"> All Vehicles</label>
-        <label class="filter-option"><input type="radio" name="f-type" value="car" onchange="renderCatalog()"> Cars Only</label>
-        <label class="filter-option"><input type="radio" name="f-type" value="bike" onchange="renderCatalog()"> Bikes Only</label>
+        <h4>Vehicle Type</h4>
+        <label class="filter-option"><input type="radio" name="f-type" value="all" checked onchange="renderCatalog()"> All Vehicles (60)</label>
+        <label class="filter-option"><input type="radio" name="f-type" value="car" onchange="renderCatalog()"> 🚗 Luxury Cars (30)</label>
+        <label class="filter-option"><input type="radio" name="f-type" value="bike" onchange="renderCatalog()"> 🏍️ Premium Motorcycles (30)</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Manufacturer / Brand</h4>
+        <select id="catalogBrandFilter" class="filter-select" onchange="renderCatalog()">
+          <option value="all">All Manufacturers</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <h4>Category / Body Style</h4>
+        <select id="catalogCategoryFilter" class="filter-select" onchange="renderCatalog()">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <h4>Sort By</h4>
+        <select id="catalogSortFilter" class="filter-select" onchange="renderCatalog()">
+          <option value="default">Default Order</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="power-desc">Horsepower: High to Low</option>
+          <option value="name-asc">Name: A to Z</option>
+        </select>
       </div>
 
       <div class="filter-group">
@@ -60,6 +85,10 @@
         <label class="filter-option"><input type="checkbox" class="f-fuel" value="Diesel" onchange="renderCatalog()"> Diesel</label>
         <label class="filter-option"><input type="checkbox" class="f-fuel" value="Hybrid" onchange="renderCatalog()"> Hybrid</label>
         <label class="filter-option"><input type="checkbox" class="f-fuel" value="Electric" onchange="renderCatalog()"> Electric</label>
+      </div>
+
+      <div style="margin-top:16px;">
+        <button class="btn small full" onclick="resetCatalogFilters()">Reset All Filters</button>
       </div>
     </aside>
 
@@ -94,6 +123,7 @@
   </div>
 </footer>
 
+<script src="vehicles-data.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
