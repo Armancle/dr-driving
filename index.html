@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Driving — Compare Vehicles & Decide Instantly</title>
+<meta name="description" content="Dr. Driving (Doctor Driving) - Side-by-side vehicle comparison engine. Compare cars and bikes with real specs, features, pros & cons, and winner highlights.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" class="logo-img" alt="Dr. Driving Logo">
+      Dr.<span>Driving</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="compare.html">Side-by-Side Duel</a>
+      <a href="vehicles.html">Explore Catalog</a>
+      <a href="quiz.html">Find My Ride</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="icon-btn" onclick="window.location.href='compare.html'" title="Compare Dock">
+        ⚡
+        <span class="compare-badge" data-compare-count>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero-sec">
+  <div class="wrap hero-content">
+    <span class="eyebrow">Dr. Driving • Vehicle Decision Engine</span>
+    <h1 class="hero-title">Stop spending hours choosing a vehicle. Compare & decide in 60s.</h1>
+    <p class="hero-desc">Too many options lead to decision fatigue. Compare any car or bike side-by-side with automated winner highlights, real specs, and true pros & cons.</p>
+    
+    <!-- Quick Versus Selector Bar -->
+    <div class="quick-vs-bar">
+      <div>
+        <select id="quickV1" class="quick-vs-select"></select>
+      </div>
+      <div class="vs-badge">VS</div>
+      <div>
+        <select id="quickV2" class="quick-vs-select"></select>
+      </div>
+      <button class="btn primary" onclick="launchQuickVs()">Compare Now →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED SHOWDOWNS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Trending Duels</span>
+        <h2 class="sec-title">Popular Vehicle Showdowns</h2>
+      </div>
+      <a href="vehicles.html" class="btn">View All Vehicles →</a>
+    </div>
+    <div class="showdown-grid" id="featuredShowdowns"></div>
+  </div>
+</section>
+
+<!-- DECISION FINDER QUIZ TEASER -->
+<section>
+  <div class="wrap">
+    <div class="quiz-teaser-card">
+      <div>
+        <span class="eyebrow" style="color:var(--primary)">Smart Decision Engine</span>
+        <h2>Confused which vehicle fits your lifestyle & budget?</h2>
+        <p>Take the 60-second "Find My Ride" quiz. Answer 3 quick questions to narrow down options into your top 2 ideal matches.</p>
+        <div class="quiz-badge-row">
+          <span class="quiz-pill">✓ Budget Match</span>
+          <span class="quiz-pill">✓ City vs Highway Usage</span>
+          <span class="quiz-pill">✓ Real Fuel Economy</span>
+        </div>
+        <a href="quiz.html" class="btn primary" style="padding:14px 28px;font-size:0.95rem;">Start 60s Decision Finder →</a>
+      </div>
+      <div style="text-align:center;">
+        <img src="logo.jpg" style="width:120px;height:120px;border-radius:24px;margin:0 auto 16px;box-shadow:var(--shadow-glow);">
+        <div class="mono" style="color:var(--text-dim);font-size:0.85rem;">DR. DRIVING COMPARISON PLATFORM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING DOCK -->
+<div class="floating-compare-dock" id="floatingDock">
+  <div style="font-weight:700;font-size:0.9rem;">Comparing (<span data-compare-count>0</span>)</div>
+  <div class="dock-items-row" id="dockItemsRow"></div>
+  <a href="compare.html" class="btn primary small">Launch Side-by-Side Matrix →</a>
+  <button class="btn small" onclick="clearCompareList()">Clear</button>
+</div>
+
+<!-- VEHICLE MODAL -->
+<div class="overlay" id="modalOverlay" onclick="closeVehicleModal()"></div>
+<div class="modal-card" id="modalCard"></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px;">
+          <img src="logo.jpg" class="logo-img" alt="Dr. Driving Logo">
+          Dr.<span>Driving</span>
+        </div>
+        <p style="color:var(--text-muted);font-size:0.88rem;max-width:300px;">Dr. Driving is an elite, simple comparison platform engineered to eliminate buyer choice paralysis when selecting cars & bikes.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--text-muted);font-size:0.8rem;text-transform:uppercase;margin-bottom:16px;">Quick Links</h4>
+        <a href="index.html" style="display:block;margin-bottom:8px;color:var(--text-muted);">Home</a>
+        <a href="compare.html" style="display:block;margin-bottom:8px;color:var(--text-muted);">Side-by-Side Matrix</a>
+        <a href="vehicles.html" style="display:block;margin-bottom:8px;color:var(--text-muted);">Explore Vehicles</a>
+        <a href="quiz.html" style="display:block;color:var(--text-muted);">Decision Finder Quiz</a>
+      </div>
+      <div>
+        <h4 style="color:var(--text-muted);font-size:0.8rem;text-transform:uppercase;margin-bottom:16px;">Popular Duels</h4>
+        <a href="compare.html?v1=innova-hycross&v2=innova-crysta" style="display:block;margin-bottom:8px;color:var(--text-muted);">Innova Hycross vs Crysta</a>
+        <a href="compare.html?v1=mahindra-thar&v2=suzuki-jimny" style="display:block;margin-bottom:8px;color:var(--text-muted);">Thar vs Jimny</a>
+        <a href="compare.html?v1=ktm-duke-390&v2=triumph-speed-400" style="display:block;color:var(--text-muted);">Duke 390 vs Speed 400</a>
+      </div>
+      <div>
+        <h4 style="color:var(--text-muted);font-size:0.8rem;text-transform:uppercase;margin-bottom:16px;">Contact</h4>
+        <p style="color:var(--text-muted);font-size:0.88rem;">Dr. Driving Labs<br>support@drdriving.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>DR. DRIVING (DOCTOR DRIVING) — VEHICLE COMPARISON & DECISION PLATFORM</span>
+      <span>© 2026 Dr. Driving. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

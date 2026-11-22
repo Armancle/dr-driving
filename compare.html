@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Side-by-Side Duel — Dr. Driving</title>
+<meta name="description" content="Dr. Driving Side-by-side vehicle comparison engine. Compare 2 or 3 vehicles with power, torque, mileage, pricing, and winning highlights.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" class="logo-img" alt="Dr. Driving Logo">
+      Dr.<span>Driving</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="compare.html" class="active">Side-by-Side Duel</a>
+      <a href="vehicles.html">Explore Catalog</a>
+      <a href="quiz.html">Find My Ride</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="icon-btn" onclick="window.location.href='compare.html'" title="Compare Dock">
+        ⚡
+        <span class="compare-badge" data-compare-count>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Dr. Driving • Head-to-Head Matrix</span>
+    <h1 style="font-size:2.4rem;margin-bottom:8px;">Vehicle Duel & Spec Breakdown</h1>
+    <p style="color:var(--text-muted);margin-bottom:32px;">Select 2 or 3 vehicles below to generate instant head-to-head spec comparison with automated winning highlights.</p>
+
+    <!-- SELECTORS BAR -->
+    <div class="compare-selectors-bar">
+      <div class="selectors-grid">
+        <div class="selector-box">
+          <label>VEHICLE A (SLOT 1)</label>
+          <select id="selectV1" class="quick-vs-select" onchange="handleMatrixSelectChange()"></select>
+        </div>
+        <div class="selector-box">
+          <label>VEHICLE B (SLOT 2)</label>
+          <select id="selectV2" class="quick-vs-select" onchange="handleMatrixSelectChange()"></select>
+        </div>
+        <div class="selector-box">
+          <label>VEHICLE C (OPTIONAL SLOT 3)</label>
+          <select id="selectV3" class="quick-vs-select" onchange="handleMatrixSelectChange()"></select>
+        </div>
+      </div>
+    </div>
+
+    <!-- MATRIX TABLE -->
+    <div style="overflow-x:auto;">
+      <table class="compare-matrix-table" id="compareTable"></table>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING DOCK -->
+<div class="floating-compare-dock" id="floatingDock">
+  <div style="font-weight:700;font-size:0.9rem;">Comparing (<span data-compare-count>0</span>)</div>
+  <div class="dock-items-row" id="dockItemsRow"></div>
+  <a href="compare.html" class="btn primary small">Launch Side-by-Side Matrix →</a>
+  <button class="btn small" onclick="clearCompareList()">Clear</button>
+</div>
+
+<!-- VEHICLE MODAL -->
+<div class="overlay" id="modalOverlay" onclick="closeVehicleModal()"></div>
+<div class="modal-card" id="modalCard"></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>DR. DRIVING (DOCTOR DRIVING) — VEHICLE COMPARISON PLATFORM</span>
+      <span>© 2026 Dr. Driving. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

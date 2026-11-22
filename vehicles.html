@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Vehicles & Specs — Dr. Driving</title>
+<meta name="description" content="Dr. Driving Vehicle Catalog. Browse popular cars and bikes with full technical specs, prices, and features. Add to compare with one click.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" class="logo-img" alt="Dr. Driving Logo">
+      Dr.<span>Driving</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="compare.html">Side-by-Side Duel</a>
+      <a href="vehicles.html" class="active">Explore Catalog</a>
+      <a href="quiz.html">Find My Ride</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="icon-btn" onclick="window.location.href='compare.html'" title="Compare Dock">
+        ⚡
+        <span class="compare-badge" data-compare-count>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section style="padding-bottom:0;">
+  <div class="wrap">
+    <span class="eyebrow">Dr. Driving Catalog</span>
+    <h1 style="font-size:2.4rem;margin-bottom:8px;">Explore All Cars & Bikes</h1>
+    <p style="color:var(--text-muted);margin-bottom:36px;">Search by model, filter by vehicle type or fuel source, and add up to 3 vehicles to your head-to-head comparison dock.</p>
+  </div>
+</section>
+
+<section style="padding-top:0;border-bottom:none;">
+  <div class="wrap catalog-layout">
+    <!-- FILTERS SIDEBAR -->
+    <aside class="filters-sidebar">
+      <div class="filter-group">
+        <h4>Search Vehicle</h4>
+        <input type="text" id="catalogSearch" class="filter-input" placeholder="e.g. Innova, Thar, Duke..." oninput="renderCatalog()">
+      </div>
+
+      <div class="filter-group">
+        <h4>Vehicle Category</h4>
+        <label class="filter-option"><input type="radio" name="f-type" value="all" checked onchange="renderCatalog()"> All Vehicles</label>
+        <label class="filter-option"><input type="radio" name="f-type" value="car" onchange="renderCatalog()"> Cars Only</label>
+        <label class="filter-option"><input type="radio" name="f-type" value="bike" onchange="renderCatalog()"> Bikes Only</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>Fuel / Powertrain</h4>
+        <label class="filter-option"><input type="checkbox" class="f-fuel" value="Petrol" onchange="renderCatalog()"> Petrol</label>
+        <label class="filter-option"><input type="checkbox" class="f-fuel" value="Diesel" onchange="renderCatalog()"> Diesel</label>
+        <label class="filter-option"><input type="checkbox" class="f-fuel" value="Hybrid" onchange="renderCatalog()"> Hybrid</label>
+        <label class="filter-option"><input type="checkbox" class="f-fuel" value="Electric" onchange="renderCatalog()"> Electric</label>
+      </div>
+    </aside>
+
+    <!-- GRID AREA -->
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+        <span style="color:var(--text-muted);font-size:0.9rem;">Showing <strong id="catalogCount">0</strong> vehicles</span>
+      </div>
+      <div class="vehicle-grid" id="vehicleGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING DOCK -->
+<div class="floating-compare-dock" id="floatingDock">
+  <div style="font-weight:700;font-size:0.9rem;">Comparing (<span data-compare-count>0</span>)</div>
+  <div class="dock-items-row" id="dockItemsRow"></div>
+  <a href="compare.html" class="btn primary small">Launch Side-by-Side Matrix →</a>
+  <button class="btn small" onclick="clearCompareList()">Clear</button>
+</div>
+
+<!-- VEHICLE MODAL -->
+<div class="overlay" id="modalOverlay" onclick="closeVehicleModal()"></div>
+<div class="modal-card" id="modalCard"></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>DR. DRIVING (DOCTOR DRIVING) — VEHICLE COMPARISON PLATFORM</span>
+      <span>© 2026 Dr. Driving. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

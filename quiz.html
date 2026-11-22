@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find My Ideal Ride — Dr. Driving 60s Quiz</title>
+<meta name="description" content="Dr. Driving 60-second decision engine. Narrow down vehicle choices instantly and compare top matches head-to-head.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">
+      <img src="logo.jpg" class="logo-img" alt="Dr. Driving Logo">
+      Dr.<span>Driving</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="compare.html">Side-by-Side Duel</a>
+      <a href="vehicles.html">Explore Catalog</a>
+      <a href="quiz.html" class="active">Find My Ride</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="icon-btn" onclick="window.location.href='compare.html'" title="Compare Dock">
+        ⚡
+        <span class="compare-badge" data-compare-count>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="quiz-container">
+  <div class="quiz-card">
+    <div class="quiz-progress-track">
+      <div class="quiz-progress-fill" id="quizProgressFill"></div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="quiz-step active" id="quizStep1">
+      <span class="eyebrow">Dr. Driving • Step 1 of 3</span>
+      <h2 class="quiz-question">What type of vehicle are you looking for?</h2>
+      <div class="options-grid">
+        <div class="quiz-opt-btn" onclick="selectQuizOption(1,'type','car',this)">
+          <span class="quiz-opt-title">🚗 Car / SUV / MPV</span>
+          <span class="quiz-opt-sub">Comfortable multi-seater for family, commuting & trips</span>
+        </div>
+        <div class="quiz-opt-btn" onclick="selectQuizOption(1,'type','bike',this)">
+          <span class="quiz-opt-title">🏍️ Motorcycle / Bike</span>
+          <span class="quiz-opt-sub">Agile, sporty, or cruiser two-wheeler</span>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <button class="btn primary" onclick="goToQuizStep(2)">Next Question →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="quiz-step" id="quizStep2">
+      <span class="eyebrow">Dr. Driving • Step 2 of 3</span>
+      <h2 class="quiz-question">What is your primary driving priority?</h2>
+      <div class="options-grid">
+        <div class="quiz-opt-btn" onclick="selectQuizOption(2,'priority','mileage',this)">
+          <span class="quiz-opt-title">⛽ Maximum Fuel Efficiency</span>
+          <span class="quiz-opt-sub">Lowest running cost, high mileage / hybrid efficiency</span>
+        </div>
+        <div class="quiz-opt-btn" onclick="selectQuizOption(2,'priority','comfort',this)">
+          <span class="quiz-opt-title">🛋️ Family Comfort & Space</span>
+          <span class="quiz-opt-sub">Plush ride, multi-row seating, luxury tech features</span>
+        </div>
+        <div class="quiz-opt-btn" onclick="selectQuizOption(2,'priority','offroad',this)">
+          <span class="quiz-opt-title">🏔️ Offroading & Tough Roads</span>
+          <span class="quiz-opt-sub">4x4 / AWD, ground clearance, high torque</span>
+        </div>
+        <div class="quiz-opt-btn" onclick="selectQuizOption(2,'priority','performance',this)">
+          <span class="quiz-opt-title">🏎️ Pure Speed & Performance</span>
+          <span class="quiz-opt-sub">High horsepower, quick acceleration, sporty handling</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;">
+        <button class="btn" onclick="goToQuizStep(1)">← Back</button>
+        <button class="btn primary" onclick="goToQuizStep(3)">See My Matches →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: RESULTS -->
+    <div class="quiz-step" id="quizStep3">
+      <div id="quizResultsContainer"></div>
+      <div style="text-align:center;margin-top:24px;">
+        <button class="btn" onclick="goToQuizStep(1)">Retake Quiz</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING DOCK -->
+<div class="floating-compare-dock" id="floatingDock">
+  <div style="font-weight:700;font-size:0.9rem;">Comparing (<span data-compare-count>0</span>)</div>
+  <div class="dock-items-row" id="dockItemsRow"></div>
+  <a href="compare.html" class="btn primary small">Launch Side-by-Side Matrix →</a>
+  <button class="btn small" onclick="clearCompareList()">Clear</button>
+</div>
+
+<!-- VEHICLE MODAL -->
+<div class="overlay" id="modalOverlay" onclick="closeVehicleModal()"></div>
+<div class="modal-card" id="modalCard"></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>DR. DRIVING (DOCTOR DRIVING) — VEHICLE COMPARISON PLATFORM</span>
+      <span>© 2026 Dr. Driving. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
